@@ -1,8 +1,18 @@
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import axios from "axios";
 
 const SecondaryDraw = () => {
   const theme = useTheme();
+  axios
+    .get("http://localhost:8000/api/server/select/?category=cat1")
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+
   return (
     <Box
       sx={{
