@@ -1,10 +1,12 @@
 import { Box, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 import axios from "axios";
+import useAxiosWithInterceptor from "../../helpers/jwtinterceptor";
 
 const SecondaryDraw = () => {
   const theme = useTheme();
-  axios
+  const jwtAxios = useAxiosWithInterceptor();
+  jwtAxios
     .get("http://localhost:8000/api/server/select/?category=cat1")
     .then((response) => {
       console.log(response.data);
